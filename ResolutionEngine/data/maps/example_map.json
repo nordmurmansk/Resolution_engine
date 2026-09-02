@@ -1,0 +1,128 @@
+{
+  "name": "example_map",
+  "description": "Пример карты для Resolution Engine",
+  "entities": [
+    {
+      "id": 1,
+      "type": "player_spawn",
+      "name": "PlayerStart",
+      "position": [0, 0, 0],
+      "rotation": [0, 0, 0]
+    },
+    {
+      "id": 2,
+      "type": "enemy",
+      "name": "Enemy_01",
+      "position": [10, 0, 5],
+      "rotation": [0, 180, 0],
+      "properties": {
+        "health": 100,
+        "faction": "hostile",
+        "script": "scripts/example_ai.lua",
+        "detectionRadius": 15.0,
+        "attackRange": 5.0
+      }
+    },
+    {
+      "id": 3,
+      "type": "item",
+      "name": "HealthPack",
+      "position": [-5, 0, 3],
+      "properties": {
+        "itemType": "health",
+        "value": 25
+      }
+    },
+    {
+      "id": 4,
+      "type": "trigger",
+      "name": "DoorTrigger",
+      "bounds": [[0, 0, 0], [3, 3, 3]],
+      "properties": {
+        "script": "scripts/door_trigger.lua",
+        "targetEntity": 5
+      }
+    },
+    {
+      "id": 5,
+      "type": "door",
+      "name": "MainDoor",
+      "position": [0, 0, 10],
+      "properties": {
+        "openDirection": [1, 0, 0],
+        "openDistance": 2.0,
+        "openSpeed": 1.0
+      }
+    },
+    {
+      "id": 6,
+      "type": "weapon",
+      "name": "AssaultRifle",
+      "position": [5, 0, 1],
+      "properties": {
+        "weaponType": "hitscan",
+        "damage": 25,
+        "range": 100,
+        "spread": 0.02,
+        "fireRate": 0.1,
+        "magazineSize": 30,
+        "penetration": 1
+      }
+    }
+  ],
+  "brushes": [
+    {
+      "position": [0, -2, 0],
+      "rotation": [0, 0, 0],
+      "size": [50, 1, 50],
+      "texture": "textures/floor.png",
+      "isTrigger": false
+    },
+    {
+      "position": [0, 5, -25],
+      "rotation": [0, 0, 0],
+      "size": [25, 10, 1],
+      "texture": "textures/wall.png",
+      "isTrigger": false
+    }
+  ],
+  "props": [
+    {
+      "position": [8, 0, 8],
+      "rotation": [0, 45, 0],
+      "scale": [1, 1, 1],
+      "modelPath": "models/crate.glb"
+    },
+    {
+      "position": [-8, 0, 8],
+      "rotation": [0, -30, 0],
+      "scale": [1, 1, 1],
+      "modelPath": "models/barrel.glb"
+    }
+  ],
+  "lights": [
+    {
+      "position": [0, 10, 0],
+      "color": [1.0, 0.95, 0.9],
+      "intensity": 1.0,
+      "range": 30.0,
+      "isDirectional": true,
+      "direction": [0, -1, 0]
+    },
+    {
+      "position": [5, 5, 5],
+      "color": [1.0, 0.8, 0.6],
+      "intensity": 0.8,
+      "range": 15.0,
+      "isDirectional": false
+    }
+  ],
+  "skybox": "textures/skybox/",
+  "fog": {
+    "color": [0.6, 0.7, 0.8],
+    "density": 0.02,
+    "startDistance": 20,
+    "endDistance": 100
+  },
+  "mapScript": "scripts/level_logic.lua"
+}
